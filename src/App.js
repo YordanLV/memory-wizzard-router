@@ -1,6 +1,6 @@
 import React from "react";
-import FlowProvider from "./components/flowProvider";
-import Flow, { Screen } from "./components/flow";
+import { MemoryRouter as Router } from "react-router-dom";
+import Flow, { FlowProvider, Screen } from "./components/Flow";
 
 import Controls from "./components/controls";
 
@@ -22,24 +22,26 @@ const FinalPage = () => {
 
 export default function MyFlowSetup() {
   return (
-    <FlowProvider>
-      <Controls />
-      <section className="App">
-        <Flow>
-          <Screen name="login-form">
-            <LoginForm />
-          </Screen>
-          <Screen name="transaction-page">
-            <TransactionPage />
-          </Screen>
-          <Screen name="transaction-tracker">
-            <TransactionTracker />
-          </Screen>
-          <Screen name="final-page">
-            <FinalPage />
-          </Screen>
-        </Flow>
-      </section>
-    </FlowProvider>
+    <Router>
+      <FlowProvider>
+        <Controls />
+        <section className="App">
+          <Flow>
+            <Screen name="login-form">
+              <LoginForm />
+            </Screen>
+            <Screen name="transaction-page">
+              <TransactionPage />
+            </Screen>
+            <Screen name="transaction-tracker">
+              <TransactionTracker />
+            </Screen>
+            <Screen name="final-page">
+              <FinalPage />
+            </Screen>
+          </Flow>
+        </section>
+      </FlowProvider>
+    </Router>
   );
 }

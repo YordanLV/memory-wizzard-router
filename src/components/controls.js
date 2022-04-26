@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import useFlowControls from "./useFlowControls";
+import { useFlowControls } from "./Flow";
 
 const Controls = withRouter(() => {
   const [nextScreen, prevScreen] = useFlowControls();
@@ -13,14 +13,8 @@ const Controls = withRouter(() => {
         <Link to={`/transaction-tracker`}>Link to transaction-tracker</Link>
       </div>
       <div>
-        <Link to={`/transaction-tracker/final-page`}>
-          Link to transaction-tracker/final-page
-        </Link>
-      </div>
-      <div>
-        <button>History push to Transaction-Page</button>
-        <button onClick={prevScreen}>{'<'}</button>
-        <button onClick={nextScreen}>{'>'}</button>
+        <button onClick={prevScreen}>{"<"}</button>
+        <button onClick={nextScreen}>{">"}</button>
       </div>
     </>
   );
